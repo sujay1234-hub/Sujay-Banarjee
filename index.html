@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise for Mom!</title>
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            text-align: center; 
+            margin: 0; 
+            padding: 2rem; 
+            background: linear-gradient(135deg, #ffe4e1, #ffb6c1); 
+            color: #333; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+        }
+        h1 { 
+            color: #ff1493; 
+            font-size: 2.5rem; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1); 
+            margin-bottom: 1rem; 
+        }
+        p { 
+            font-size: 1.2rem; 
+            margin-bottom: 2rem; 
+            max-width: 600px; 
+        }
+        #surprise-container { 
+            display: none; 
+            margin-top: 2rem; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 2rem; 
+            opacity: 0; 
+            transition: opacity 1s ease-in-out; 
+        }
+        #surprise-container.show { 
+            opacity: 1; 
+        }
+        #surprise-pic { 
+            max-width: 90%; 
+            height: auto; 
+            border-radius: 15px; 
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2); 
+        }
+        #love-note { 
+            padding: 1.5rem; 
+            background: rgba(255, 255, 255, 0.9); 
+            border-radius: 15px; 
+            max-width: 500px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+            font-style: italic; 
+        }
+        button { 
+            background: linear-gradient(45deg, #ff69b4, #ff1493); 
+            color: white; 
+            border: none; 
+            padding: 1rem 2rem; 
+            font-size: 1.3rem; 
+            border-radius: 25px; 
+            cursor: pointer; 
+            margin-top: 1rem; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+            transition: transform 0.2s; 
+        }
+        button:hover { 
+            transform: scale(1.05); 
+        }
+        #photo-gallery { 
+            display: none; 
+            margin-top: 2rem; 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 1rem; 
+            justify-content: center; 
+        }
+        #photo-gallery img { 
+            width: 200px; 
+            height: 150px; 
+            object-fit: cover; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+            transition: transform 0.3s; 
+        }
+        #photo-gallery img:hover { 
+            transform: scale(1.05); 
+        }
+        canvas { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            pointer-events: none; 
+            z-index: -1; 
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <h1>A Beautiful Surprise from Your Son</h1>
+    <p>Hi Mom! I've created this special page just for you. Click the button below to uncover something wonderful I prepared with love.</p>
+    <button id="reveal-btn">Reveal My Surprise</button>
+    
+    <div id="surprise-container">
+        <img id="surprise-pic" src="surprise.jpg" alt="Surprise Photo from Your Son">
+        <div id="love-note">
+            <h2>A Little Note from Your Son</h2>
+            <p>Dear Mom,<br><br>
+            You've always been my rock, my biggest cheerleader, and the one who taught me what love truly means. From your warm hugs to your endless support, you've made every day brighter. This surprise is just a small way to say thank you for everything—your kindness, your strength, and the way you light up our world. I love you more than words can say.<br><br>
+            Forever yours,<br>
+            [Your Name]</p>
+        </div>
+    </div>
+    
+    <div id="photo-gallery" style="display: none;">
+        <h2>More Memories to Cherish</h2>
+        <img src="memory1.jpg" alt="Memory Photo 1">
+        <img src="memory2.jpg" alt="Memory Photo 2">
+        <img src="memory3.jpg" alt="Memory Photo 3">
+        <!-- Add more <img> tags as needed -->
+    </div>
+    
+    <script>
+        const revealBtn = document.getElementById('reveal-btn');
+        const container = document.getElementById('surprise-container');
+        const gallery = document.getElementById('photo-gallery');
+        
+        revealBtn.addEventListener('click', function() {
+            container.style.display = 'flex';
+            setTimeout(() => container.classList.add('show'), 100); // Fade-in animation for both photo and note
+            setTimeout(() => gallery.style.display = 'flex', 3000); // Show gallery after 3 seconds for extra surprise
+            confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } }); // Fun confetti effect
+        });
+    </script>
+</body>
+</html>
