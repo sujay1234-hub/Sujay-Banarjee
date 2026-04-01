@@ -45,7 +45,7 @@
   nav.scrolled { background:rgba(6,6,8,0.88); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border-bottom:1px solid var(--border); padding:14px 64px; }
   .nav-logo { font-family:'Syne',sans-serif; font-weight:800; font-size:1.15rem; letter-spacing:-.02em; color:var(--text); text-decoration:none; }
   .nav-logo span { color:var(--accent); }
-  .nav-links { display:flex; gap:38px; list-style:none; }
+  .nav-links { display:flex; gap:32px; list-style:none; }
   .nav-links a { font-family:'DM Mono',monospace; font-size:.7rem; color:var(--muted); text-decoration:none; letter-spacing:.07em; text-transform:uppercase; transition:color .2s; position:relative; }
   .nav-links a::after { content:''; position:absolute; bottom:-5px; left:0; right:0; height:1px; background:var(--accent); transform:scaleX(0); transition:transform .2s; }
   .nav-links a:hover { color:var(--text); }
@@ -96,7 +96,7 @@
   .stat-num { font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; color:var(--accent); letter-spacing:-.04em; }
   .stat-label { font-size:.78rem; color:var(--muted); margin-top:4px; }
 
-  /* Profile card with PHOTO */
+  /* Profile card */
   .about-visual { position:relative; }
   .profile-card { background:var(--surface); border:1px solid var(--border2); border-radius:28px; padding:36px; position:relative; overflow:hidden; }
   .profile-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3)); }
@@ -115,8 +115,42 @@
   .tech-icon .tooltip { position:absolute; bottom:-28px; left:50%; transform:translateX(-50%); font-family:'DM Mono',monospace; font-size:.58rem; color:var(--text); background:rgba(16,16,22,.98); padding:3px 8px; border-radius:5px; white-space:nowrap; opacity:0; pointer-events:none; transition:opacity .2s; }
   .tech-icon:hover .tooltip { opacity:1; }
 
+  /* Education */
+  #education { background:var(--bg); }
+  .edu-card { max-width:800px; margin:56px auto 0; background:var(--surface); border:1px solid var(--border2); border-radius:24px; padding:40px; position:relative; overflow:hidden; }
+  .edu-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--accent),var(--accent2)); }
+  .edu-degree { font-family:'Syne',sans-serif; font-weight:700; font-size:1.3rem; letter-spacing:-.02em; margin-bottom:8px; }
+  .edu-field { font-family:'DM Mono',monospace; font-size:.75rem; color:var(--accent); letter-spacing:.08em; text-transform:uppercase; margin-bottom:10px; }
+  .edu-uni { font-size:.95rem; color:var(--muted); }
+  .edu-meta { display:flex; gap:20px; margin-top:20px; flex-wrap:wrap; }
+  .edu-badge { font-family:'DM Mono',monospace; font-size:.65rem; letter-spacing:.06em; padding:5px 14px; border-radius:100px; border:1px solid var(--border2); color:var(--dim); }
+
   /* Divider */
   .divider { height:1px; background:linear-gradient(90deg,transparent,var(--border),transparent); max-width:1200px; margin:0 auto; }
+
+  /* Skills */
+  #skills { background:var(--bg2); }
+  .skills-layout { max-width:1200px; margin:56px auto 0; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+  .skill-bars { display:flex; flex-direction:column; gap:22px; }
+  .skill-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+  .skill-name { font-family:'DM Mono',monospace; font-size:.73rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text); }
+  .skill-pct { font-family:'DM Mono',monospace; font-size:.68rem; color:var(--muted); }
+  .skill-track { height:2.5px; background:var(--surface2); border-radius:2px; overflow:hidden; }
+  .skill-fill { height:100%; border-radius:2px; width:0; transition:width 1.4s cubic-bezier(.25,1,.5,1); }
+  .skill-fill.html { background:linear-gradient(90deg,#E34F26,#F06529); }
+  .skill-fill.css  { background:linear-gradient(90deg,#264DE4,#2965F1); }
+  .skill-fill.js   { background:linear-gradient(90deg,#F7DF1E,#F0C80D); }
+  .skill-fill.ui   { background:linear-gradient(90deg,#C77DFF,#9B59B6); }
+  .skill-fill.perf { background:linear-gradient(90deg,#61DAFB,#21D4FD); }
+  .skill-fill.prod { background:linear-gradient(90deg,var(--accent),var(--accent2)); }
+  .skills-visual { position:relative; }
+  .orbit-wrapper { width:320px; height:320px; position:relative; margin:0 auto; }
+  .orbit-ring { position:absolute; border-radius:50%; border:1px dashed var(--border); top:50%; left:50%; transform:translate(-50%,-50%); animation:spin var(--s,20s) linear infinite; }
+  .orbit-ring.r1 { width:170px; height:170px; --s:11s; }
+  .orbit-ring.r2 { width:270px; height:270px; --s:19s; animation-direction:reverse; }
+  @keyframes spin { from{transform:translate(-50%,-50%) rotate(0)} to{transform:translate(-50%,-50%) rotate(360deg)} }
+  .orbit-center { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:84px; height:84px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent2)); display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-weight:800; font-size:.72rem; color:#000; text-align:center; line-height:1.35; box-shadow:0 0 60px rgba(125,249,194,.22); }
+  .orbit-node { position:absolute; width:44px; height:44px; border-radius:12px; background:var(--surface2); border:1px solid var(--border2); display:flex; align-items:center; justify-content:center; font-size:1.35rem; backdrop-filter:blur(10px); transform:translate(-50%,-50%); }
 
   /* Projects */
   #projects { background:var(--bg); }
@@ -144,29 +178,31 @@
   .link-gh { border:1px solid var(--border2); color:var(--muted); }
   .link-gh:hover { border-color:var(--accent2); color:var(--accent2); }
 
-  /* Skills */
-  #skills { background:var(--bg2); }
-  .skills-layout { max-width:1200px; margin:56px auto 0; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
-  .skill-bars { display:flex; flex-direction:column; gap:22px; }
-  .skill-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
-  .skill-name { font-family:'DM Mono',monospace; font-size:.73rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text); }
-  .skill-pct { font-family:'DM Mono',monospace; font-size:.68rem; color:var(--muted); }
-  .skill-track { height:2.5px; background:var(--surface2); border-radius:2px; overflow:hidden; }
-  .skill-fill { height:100%; border-radius:2px; width:0; transition:width 1.4s cubic-bezier(.25,1,.5,1); }
-  .skill-fill.html { background:linear-gradient(90deg,#E34F26,#F06529); }
-  .skill-fill.css  { background:linear-gradient(90deg,#264DE4,#2965F1); }
-  .skill-fill.js   { background:linear-gradient(90deg,#F7DF1E,#F0C80D); }
-  .skill-fill.react{ background:linear-gradient(90deg,#61DAFB,#21D4FD); }
-  .skill-fill.fire { background:linear-gradient(90deg,#FFCA28,#FFA000); }
-  .skill-fill.c    { background:linear-gradient(90deg,var(--accent),var(--accent2)); }
-  .skills-visual { position:relative; }
-  .orbit-wrapper { width:320px; height:320px; position:relative; margin:0 auto; }
-  .orbit-ring { position:absolute; border-radius:50%; border:1px dashed var(--border); top:50%; left:50%; transform:translate(-50%,-50%); animation:spin var(--s,20s) linear infinite; }
-  .orbit-ring.r1 { width:170px; height:170px; --s:11s; }
-  .orbit-ring.r2 { width:270px; height:270px; --s:19s; animation-direction:reverse; }
-  @keyframes spin { from{transform:translate(-50%,-50%) rotate(0)} to{transform:translate(-50%,-50%) rotate(360deg)} }
-  .orbit-center { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:84px; height:84px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent2)); display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-weight:800; font-size:.72rem; color:#000; text-align:center; line-height:1.35; box-shadow:0 0 60px rgba(125,249,194,.22); }
-  .orbit-node { position:absolute; width:44px; height:44px; border-radius:12px; background:var(--surface2); border:1px solid var(--border2); display:flex; align-items:center; justify-content:center; font-size:1.35rem; backdrop-filter:blur(10px); transform:translate(-50%,-50%); }
+  /* Certifications */
+  #certifications { background:var(--bg2); }
+  .cert-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:22px; max-width:1200px; margin:56px auto 0; }
+  .cert-card { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:30px; display:flex; align-items:flex-start; gap:18px; transition:all .25s; }
+  .cert-card:hover { border-color:var(--border2); transform:translateY(-4px); }
+  .cert-icon { font-size:1.8rem; flex-shrink:0; }
+  .cert-body { flex:1; }
+  .cert-name { font-family:'Syne',sans-serif; font-weight:600; font-size:1rem; letter-spacing:-.01em; margin-bottom:6px; }
+  .cert-issuer { font-family:'DM Mono',monospace; font-size:.68rem; color:var(--accent); letter-spacing:.06em; text-transform:uppercase; }
+
+  /* Interests */
+  #interests { background:var(--bg); }
+  .interests-grid { display:flex; flex-wrap:wrap; gap:14px; max-width:900px; margin:56px auto 0; }
+  .interest-chip { display:inline-flex; align-items:center; gap:8px; padding:10px 20px; background:var(--surface); border:1px solid var(--border2); border-radius:100px; font-family:'DM Mono',monospace; font-size:.72rem; letter-spacing:.05em; color:var(--muted); transition:all .2s; cursor:default; }
+  .interest-chip:hover { border-color:var(--accent); color:var(--accent); transform:translateY(-2px); }
+  .interest-chip span { font-size:1.1rem; }
+
+  /* Achievements */
+  #achievements { background:var(--bg2); }
+  .achievements-list { max-width:900px; margin:56px auto 0; display:flex; flex-direction:column; gap:16px; }
+  .achievement-item { display:flex; align-items:flex-start; gap:16px; padding:24px 28px; background:var(--surface); border:1px solid var(--border); border-radius:16px; transition:all .2s; }
+  .achievement-item:hover { border-color:var(--border2); transform:translateX(6px); }
+  .achievement-dot { width:8px; height:8px; border-radius:50%; background:var(--accent); flex-shrink:0; margin-top:6px; }
+  .achievement-text { font-size:.95rem; color:var(--muted); line-height:1.7; }
+  .achievement-text strong { color:var(--text); font-weight:500; }
 
   /* Contact */
   #contact { background:var(--bg); }
@@ -235,25 +271,27 @@
   <a href="#" class="nav-logo">SB<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Hire Me</a>
   <div class="nav-hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
 </nav>
 
+<!-- INTRO / HERO -->
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
   <div class="float-icons" id="float-icons"></div>
   <div class="hero-content">
-    <div class="hero-badge"><span class="hero-badge-dot"></span>Open to internships &amp; collaborations</div>
+    <div class="hero-badge"><span class="hero-badge-dot"></span>Open to Internships &amp; Collaborations</div>
     <h1 class="hero-title">
       <span class="line">Hi, I'm</span>
       <span class="line highlight">Sujay</span>
       <span class="line highlight">Banarjee</span>
     </h1>
-    <p class="hero-sub">A Computer Science student building useful digital tools and startup ideas — turning ideas into real experiences that matter.</p>
+    <p class="hero-sub">I build practical digital products focused on performance, user experience, and real-world problem solving.</p>
     <div class="hero-actions">
       <a href="#projects" class="btn-primary">View Projects <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       <a href="#contact" class="btn-outline">Contact Me <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
@@ -262,19 +300,20 @@
   <div class="hero-scroll"><span class="scroll-line"></span>Scroll to explore</div>
 </section>
 
+<!-- ABOUT ME -->
 <section id="about">
   <div style="max-width:1200px;margin:0 auto">
     <div class="section-label reveal">About Me</div>
     <div class="about-grid">
       <div class="about-text reveal reveal-delay-1">
         <h2 class="section-title"><span class="g">The person behind<br>the keyboard.</span></h2>
-        <p>I'm <strong>Sujay Banarjee</strong>, a first-year B.Tech Computer Science student at <strong>Lovely Professional University</strong>. I'm passionate about building practical digital tools that solve real problems students and people face every day.</p>
-        <p>What drives me is the belief that <strong>technology should be accessible</strong> — I build tools that simplify complex things: tracking attendance, swapping skills, discovering campus life. Every project is a step toward becoming a full-stack developer who ships.</p>
-        <p>Currently deep in the <strong>web development ecosystem</strong> — learning React, working with Firebase, and planning my next startup idea. <em style="color:var(--dim)">Always building. Always learning.</em></p>
+        <p>I'm <strong>Sujay Banarjee</strong>, a B.Tech Computer Science Engineering student at <strong>Lovely Professional University</strong>. I have a strong interest in web development and real-world product building, with a focus on creating practical solutions that improve UI/UX and optimize performance.</p>
+        <p>I believe in <strong>learning by building</strong> — and I am actively working on projects that combine technology with startup-level thinking. My goal is to become a skilled software engineer and create scalable digital platforms that solve real problems.</p>
+        <p>Currently deep in the <strong>web development ecosystem</strong> — building tools students actually need and planning platforms that matter. <em style="color:var(--dim)">Always building. Always learning.</em></p>
         <div class="about-stats">
           <div class="stat-card"><div class="stat-num">3+</div><div class="stat-label">Projects in progress</div></div>
-          <div class="stat-card"><div class="stat-num">1st</div><div class="stat-label">Year CS @ LPU</div></div>
-          <div class="stat-card"><div class="stat-num">6+</div><div class="stat-label">Technologies learning</div></div>
+          <div class="stat-card"><div class="stat-num">LPU</div><div class="stat-label">B.Tech CS @ LPU</div></div>
+          <div class="stat-card"><div class="stat-num">1</div><div class="stat-label">Certification earned</div></div>
           <div class="stat-card"><div class="stat-num">∞</div><div class="stat-label">Ideas to build</div></div>
         </div>
       </div>
@@ -287,11 +326,11 @@
           <div class="profile-name">Sujay Banarjee</div>
           <div class="profile-role">CS Student · Web Dev · Builder</div>
           <div class="profile-tags">
-            <span class="tag">Full-Stack</span>
+            <span class="tag">Frontend Dev</span>
             <span class="tag">Startup Builder</span>
-            <span class="tag">LPU '27</span>
-            <span class="tag">Open Source</span>
+            <span class="tag">LPU</span>
             <span class="tag">Problem Solver</span>
+            <span class="tag">UI/UX Focused</span>
           </div>
           <div class="tech-stack-label">Tech Stack</div>
           <div class="tech-icons">
@@ -299,7 +338,7 @@
             <div class="tech-icon">🎨<span class="tooltip">CSS</span></div>
             <div class="tech-icon">⚡<span class="tooltip">JavaScript</span></div>
             <div class="tech-icon">⚛️<span class="tooltip">React</span></div>
-            <div class="tech-icon">🔥<span class="tooltip">Firebase</span></div>
+            <div class="tech-icon">🎬<span class="tooltip">FFmpeg</span></div>
             <div class="tech-icon">🖥️<span class="tooltip">C Programming</span></div>
           </div>
         </div>
@@ -308,6 +347,56 @@
   </div>
 </section>
 
+<!-- EDUCATION -->
+<section id="education">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="section-label reveal">Education</div>
+    <h2 class="section-title reveal reveal-delay-1"><span class="g">Academic<br>foundation.</span></h2>
+    <div class="edu-card reveal reveal-delay-2">
+      <div class="edu-degree">Bachelor of Technology (B.Tech)</div>
+      <div class="edu-field">Computer Science Engineering</div>
+      <div class="edu-uni">Lovely Professional University</div>
+      <div class="edu-meta">
+        <span class="edu-badge">🎓 B.Tech CSE</span>
+        <span class="edu-badge">📍 Phagwara, Punjab</span>
+        <span class="edu-badge">🔭 Currently Enrolled</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="section-label reveal">Skills</div>
+    <h2 class="section-title reveal reveal-delay-1"><span class="g">Tools in<br>my arsenal.</span></h2>
+    <div class="skills-layout">
+      <div class="skill-bars reveal reveal-delay-1">
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">🌐 HTML / CSS</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill html" data-pct="85"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">⚡ JavaScript</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-fill js" data-pct="75"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">🎨 UI/UX Design &amp; Optimization</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill ui" data-pct="70"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">⚡ Performance Optimization</span><span class="skill-pct">65%</span></div><div class="skill-track"><div class="skill-fill perf" data-pct="65"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">🎬 Animation &amp; Video (FFmpeg)</span><span class="skill-pct">60%</span></div><div class="skill-track"><div class="skill-fill css" data-pct="60"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">💡 Product Thinking &amp; Problem Solving</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill prod" data-pct="80"></div></div></div>
+      </div>
+      <div class="skills-visual reveal reveal-delay-2">
+        <div class="orbit-wrapper">
+          <div class="orbit-ring r1"></div>
+          <div class="orbit-ring r2"></div>
+          <div class="orbit-center">Web<br>Dev<br>Builder</div>
+          <div class="orbit-node" style="top:10%;left:50%">🌐</div>
+          <div class="orbit-node" style="top:50%;left:90%">⚡</div>
+          <div class="orbit-node" style="top:88%;left:50%">🎨</div>
+          <div class="orbit-node" style="top:50%;left:10%">💡</div>
+          <div class="orbit-node" style="top:3%;left:68%">⚛️</div>
+          <div class="orbit-node" style="top:50%;left:97%">🎬</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
 <section id="projects">
   <div style="max-width:1200px;margin:0 auto">
     <div class="section-label reveal">Projects</div>
@@ -318,62 +407,94 @@
         <span class="project-icon">📊</span>
         <span class="project-badge badge-live">Live</span>
         <h3 class="project-title">Attendance Calculator</h3>
-        <p class="project-desc">A smart web tool that helps students instantly calculate their attendance percentage and determine exactly how many classes they need to attend to stay above the required threshold. No more guessing.</p>
+        <p class="project-desc">A web-based tool designed to help students calculate attendance percentage and track required classes. Built with a simple and practical interface focused on usability — no guesswork, just clear answers.</p>
         <div class="project-stack"><span class="stack-tag">HTML</span><span class="stack-tag">CSS</span><span class="stack-tag">JavaScript</span></div>
-        <div class="project-links"><a href="#" class="project-link link-demo">Live Demo</a><a href="https://sujay1234-hub.github.io/Attendance-Calculator/" class="project-link link-gh">GitHub →</a></div>
+        <div class="project-links"><a href="https://attendencecalculatorr.netlify.app/" target="_blank" class="project-link link-demo">Live Demo</a><a href="https://attendencecalculatorr.netlify.app/" target="_blank" class="project-link link-gh">GitHub →</a></div>
       </div>
       <div class="project-card reveal reveal-delay-2">
         <div class="project-num">02 —</div>
         <span class="project-icon">🔁</span>
-        <span class="project-badge badge-dev">In Dev</span>
-        <h3 class="project-title">Skill Swap</h3>
-        <p class="project-desc">A collaborative peer-learning platform where students can exchange skills, teach each other what they know, and build projects together. Education made social and practical.</p>
+        <span class="project-badge badge-dev">In Development</span>
+        <h3 class="project-title">SkillSwap</h3>
+        <p class="project-desc">A platform that enables users to exchange skills instead of money, encouraging collaborative learning and community-driven growth. Built on the belief that knowledge is the most valuable currency.</p>
         <div class="project-stack"><span class="stack-tag">React</span><span class="stack-tag">Firebase</span><span class="stack-tag">JavaScript</span></div>
-        <div class="project-links"><a href="#" class="project-link link-demo">Live Demo</a><a href="#" class="project-link link-gh">GitHub →</a></div>
+        <div class="project-links"><a href="#" class="project-link link-demo">Preview</a><a href="#" class="project-link link-gh">GitHub →</a></div>
       </div>
       <div class="project-card reveal reveal-delay-3">
         <div class="project-num">03 —</div>
-        <span class="project-icon">📰</span>
+        <span class="project-icon">🗂️</span>
         <span class="project-badge badge-soon">Coming Soon</span>
-        <h3 class="project-title">Campus Zine</h3>
-        <p class="project-desc">A dynamic campus community platform that aggregates student updates, events, opportunities, and essential information in one beautifully designed digital hub for LPU students.</p>
-        <div class="project-stack"><span class="stack-tag">React</span><span class="stack-tag">Firebase</span><span class="stack-tag">CSS</span></div>
+        <h3 class="project-title">Portfolio Forge</h3>
+        <p class="project-desc">A platform aimed at helping students and freelancers easily create professional portfolios with templates and customization features — removing the barrier between talent and presentation.</p>
+        <div class="project-stack"><span class="stack-tag">React</span><span class="stack-tag">CSS</span><span class="stack-tag">Firebase</span></div>
         <div class="project-links"><a href="#" class="project-link link-demo">Preview</a><a href="#" class="project-link link-gh">GitHub →</a></div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="skills">
+<!-- CERTIFICATIONS -->
+<section id="certifications">
   <div style="max-width:1200px;margin:0 auto">
-    <div class="section-label reveal">Skills</div>
-    <h2 class="section-title reveal reveal-delay-1"><span class="g">Tools in<br>my arsenal.</span></h2>
-    <div class="skills-layout">
-      <div class="skill-bars reveal reveal-delay-1">
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">🌐 HTML</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill html" data-pct="85"></div></div></div>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">🎨 CSS</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill css" data-pct="80"></div></div></div>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">⚡ JavaScript</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill js" data-pct="70"></div></div></div>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">⚛️ React</span><span class="skill-pct">55%</span></div><div class="skill-track"><div class="skill-fill react" data-pct="55"></div></div></div>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">🔥 Firebase</span><span class="skill-pct">50%</span></div><div class="skill-track"><div class="skill-fill fire" data-pct="50"></div></div></div>
-        <div class="skill-item"><div class="skill-header"><span class="skill-name">🖥️ C Programming</span><span class="skill-pct">65%</span></div><div class="skill-track"><div class="skill-fill c" data-pct="65"></div></div></div>
-      </div>
-      <div class="skills-visual reveal reveal-delay-2">
-        <div class="orbit-wrapper">
-          <div class="orbit-ring r1"></div>
-          <div class="orbit-ring r2"></div>
-          <div class="orbit-center">Full<br>Stack<br>Dev</div>
-          <div class="orbit-node" style="top:10%;left:50%">🌐</div>
-          <div class="orbit-node" style="top:50%;left:90%">⚡</div>
-          <div class="orbit-node" style="top:88%;left:50%">🎨</div>
-          <div class="orbit-node" style="top:50%;left:10%">🔥</div>
-          <div class="orbit-node" style="top:3%;left:68%">⚛️</div>
-          <div class="orbit-node" style="top:50%;left:97%">🖥️</div>
+    <div class="section-label reveal">Certifications</div>
+    <h2 class="section-title reveal reveal-delay-1"><span class="g">Credentials &amp;<br>recognition.</span></h2>
+    <div class="cert-grid">
+      <div class="cert-card reveal reveal-delay-1">
+        <div class="cert-icon">🏅</div>
+        <div class="cert-body">
+          <div class="cert-name">Certified Project Management Associate</div>
+          <div class="cert-issuer">Skill India Digital Hub</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- INTERESTS -->
+<section id="interests">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="section-label reveal">Interests</div>
+    <h2 class="section-title reveal reveal-delay-1"><span class="g">What drives<br>my curiosity.</span></h2>
+    <div class="interests-grid reveal reveal-delay-2">
+      <div class="interest-chip"><span>🌐</span> Web Development</div>
+      <div class="interest-chip"><span>🚀</span> Startup Thinking</div>
+      <div class="interest-chip"><span>🎨</span> UI/UX Design</div>
+      <div class="interest-chip"><span>⚡</span> Performance Engineering</div>
+      <div class="interest-chip"><span>🎬</span> Video &amp; Animation Tech</div>
+      <div class="interest-chip"><span>💡</span> Product Building</div>
+      <div class="interest-chip"><span>🤝</span> Collaborative Learning</div>
+      <div class="interest-chip"><span>🔬</span> Open Source</div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="section-label reveal">Achievements</div>
+    <h2 class="section-title reveal reveal-delay-1"><span class="g">Highlights &amp;<br>milestones.</span></h2>
+    <div class="achievements-list">
+      <div class="achievement-item reveal reveal-delay-1">
+        <div class="achievement-dot"></div>
+        <div class="achievement-text"><strong>Real-World Project Development</strong> — Built and deployed a live attendance calculator tool used by students, demonstrating end-to-end product delivery from concept to production.</div>
+      </div>
+      <div class="achievement-item reveal reveal-delay-2">
+        <div class="achievement-dot"></div>
+        <div class="achievement-text"><strong>Builder Mindset with Startup Orientation</strong> — Managing The Drop Service Hub as Business Manager, delivering high-quality text animation and creative digital services with client-focused execution.</div>
+      </div>
+      <div class="achievement-item reveal reveal-delay-3">
+        <div class="achievement-dot"></div>
+        <div class="achievement-text"><strong>Strong UI/UX &amp; Performance Focus</strong> — Consistently building interfaces with an emphasis on clean design, fast load times, and intuitive user experience across all projects.</div>
+      </div>
+      <div class="achievement-item reveal">
+        <div class="achievement-dot"></div>
+        <div class="achievement-text"><strong>Scalable Product Ideas in Development</strong> — Actively developing SkillSwap and Portfolio Forge — two platforms targeting real gaps in collaborative learning and professional presentation for students.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact">
   <div style="max-width:1200px;margin:0 auto">
     <div class="section-label reveal">Contact</div>
@@ -381,11 +502,11 @@
     <div class="contact-layout">
       <div class="contact-info reveal reveal-delay-1">
         <h3>Got an idea? Let's talk.</h3>
-        <p>Whether you want to collaborate on a project, discuss a startup idea, or just say hi — my inbox is always open. I'm especially interested in campus tools, web apps, and anything that makes students' lives easier.</p>
+        <p>Whether you want to collaborate on a project, discuss a startup idea, or just say hi — my inbox is always open. I'm especially interested in web apps, product ideas, and anything that makes people's lives easier.</p>
         <div class="social-links">
-          <a href="https://linkedin.com" target="_blank" class="social-link"><div class="social-icon">💼</div><div class="social-text"><span class="social-name">LinkedIn</span><span class="social-handle">Sujay Banarjee</span></div><span class="social-arrow">→</span></a>
-          <a href="https://github.com" target="_blank" class="social-link"><div class="social-icon">🐙</div><div class="social-text"><span class="social-name">GitHub</span><span class="social-handle">@sujaybanarjee</span></div><span class="social-arrow">→</span></a>
-          <a href="mailto:sujay@example.com" class="social-link"><div class="social-icon">✉️</div><div class="social-text"><span class="social-name">Email</span><span class="social-handle">sujay@example.com</span></div><span class="social-arrow">→</span></a>
+          <a href="https://www.linkedin.com/in/sujaybanarjee/" target="_blank" class="social-link"><div class="social-icon">💼</div><div class="social-text"><span class="social-name">LinkedIn</span><span class="social-handle">linkedin.com/in/sujaybanarjee</span></div><span class="social-arrow">→</span></a>
+          <a href="https://github.com/sujay1234-hub" target="_blank" class="social-link"><div class="social-icon">🐙</div><div class="social-text"><span class="social-name">GitHub</span><span class="social-handle">github.com/sujay1234-hub</span></div><span class="social-arrow">→</span></a>
+          <a href="mailto:sujaybanarjee@email.com" class="social-link"><div class="social-icon">✉️</div><div class="social-text"><span class="social-name">Email</span><span class="social-handle">sujaybanarjee@email.com</span></div><span class="social-arrow">→</span></a>
         </div>
       </div>
       <div class="contact-form reveal reveal-delay-2">
@@ -402,7 +523,7 @@
 <footer>
   <div class="logo">SB<span>.</span></div>
   <p>Designed &amp; built by Sujay Banarjee · 2025</p>
-  <p>B.Tech CS · LPU</p>
+  <p>B.Tech CSE · LPU</p>
 </footer>
 
 <script>
@@ -414,7 +535,7 @@ const dot=document.getElementById('cursor-dot'),ring=document.getElementById('cu
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
 (function ac(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ac);})();
-document.querySelectorAll('a,button,.project-card,.social-link,.tech-icon').forEach(el=>{
+document.querySelectorAll('a,button,.project-card,.social-link,.tech-icon,.interest-chip,.cert-card,.achievement-item').forEach(el=>{
   el.addEventListener('mouseenter',()=>{ring.style.width='54px';ring.style.height='54px';ring.style.borderColor='rgba(125,249,194,.6)';});
   el.addEventListener('mouseleave',()=>{ring.style.width='34px';ring.style.height='34px';ring.style.borderColor='rgba(125,249,194,.35)';});
 });
@@ -471,7 +592,7 @@ function submitForm(){
 function toggleNav(){
   const l=document.querySelector('.nav-links');
   if(l.style.display==='flex'){l.style.display='none';}
-  else{l.style.cssText='display:flex;flex-direction:column;position:fixed;top:60px;left:0;right:0;background:rgba(6,6,8,.97);padding:24px;gap:24px;border-bottom:1px solid rgba(255,255,255,.07);backdrop-filter:blur(20px);z-index:99';}
+  else{l.style.cssText='display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(6,6,8,.96);backdrop-filter:blur(20px);padding:24px 32px;gap:20px;border-bottom:1px solid rgba(255,255,255,.07);';}
 }
 </script>
 </body>
